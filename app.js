@@ -34,7 +34,7 @@ if(form){
   if(!cfg.endpoint){status.textContent='The request form is being connected. Please try again shortly or call +1 315 510 9212.';return}
   submit.disabled=true;submit.textContent='Preparing your kit…';status.textContent='Saving your request securely…';
   let savedAttrs={};try{savedAttrs=JSON.parse(safe.get('pegasus_utm')||'{}')}catch{}
-  const payload={action:'lead',requestId,firstName:form.firstName.value.trim(),email:form.email.value.trim(),website:'',utm:savedAttrs,landingPage:location.origin+location.pathname,consent:getConsent()==='yes',test:url.searchParams.get('test')==='1',version:cfg.version};
+  const payload={action:'lead',requestId,firstName:form.firstName.value.trim(),email:form.email.value.trim(),phone:form.phone.value.trim(),agencyStage:form.agencyStage.value,website:'',utm:savedAttrs,landingPage:location.origin+location.pathname,consent:getConsent()==='yes',test:url.searchParams.get('test')==='1',version:cfg.version};
   const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),25000);
   try{
    const res=await fetch(cfg.endpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload),redirect:'follow',signal:controller.signal});

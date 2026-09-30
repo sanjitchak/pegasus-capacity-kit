@@ -3,5 +3,5 @@ window.PEGASUS_CONFIG = Object.freeze({
   pixelId: '3309569809251838',
   bookingUrl: 'https://cal.id/chris-pguss/30min?layout=mobile',
   kitUrl: 'insurance-agency-capacity-kit.pdf',
-  version: '2026-09-30.2'
+  version: '2026-09-30.3'
 });
