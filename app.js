@@ -19,7 +19,7 @@ const banner=document.querySelector('#cookie-banner');
 function showConsent(){if(banner){banner.hidden=false;banner.style.display='block'}}
 function hideConsent(){if(banner){banner.hidden=true;banner.style.display='none'}}
 document.querySelectorAll('[data-cookie-settings]').forEach(b=>b.addEventListener('click',showConsent));
-document.querySelectorAll('[data-consent]').forEach(b=>b.addEventListener('click',()=>{setConsent(b.dataset.consent);hideConsent();if(b.dataset.consent==='yes'){pixel()}else if(window.fbq){window.fbq('consent','revoke')}}));
+document.querySelectorAll('[data-consent]').forEach(b=>b.addEventListener('click',()=>{setConsent(b.dataset.consent);hideConsent();if(b.dataset.consent==='yes'){if(window.fbq)window.fbq('consent','grant');pixel()}else if(window.fbq){window.fbq('consent','revoke')}}));
 if(cfg.pixelId&&!getConsent())showConsent();else pixel();
 const url=new URL(location.href);
 const attrs={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{const v=url.searchParams.get(k);if(v)attrs[k]=v.slice(0,200)});
