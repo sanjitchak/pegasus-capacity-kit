@@ -42,7 +42,7 @@ if(form){
    safe.remove('pegasus_request_id');safe.set('pegasus_completed',requestId);safe.set('pegasus_test',payload.test?'1':'0');
    if(!payload.test)trackLead(requestId);
    location.assign('thank-you.html');
-  }catch(err){status.textContent='We could not confirm your request. Your details are still here. Please try again or call +1 315 510 9212.';submit.disabled=false;submit.textContent='Get My Free Capacity Kit ↗'}
+  }catch(err){status.textContent='We could not confirm your request. Your details are still here. Please try again or call +1 315 510 9212.';submit.disabled=false;submit.textContent='Get My Free Growth Kit ↗'}
   finally{clearTimeout(timer)}
  });
 }
