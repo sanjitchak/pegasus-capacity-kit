@@ -10,9 +10,9 @@ function pixel(){
  if(pixelLoaded||!cfg.pixelId||getConsent()!=='yes')return;
  pixelLoaded=true;
  const f=window.fbq=function(){f.callMethod?f.callMethod.apply(f,arguments):f.queue.push(arguments)};
- f.queue=[];f.loaded=true;f.version='2.0';window._fbq=f;
+ f.queue=[];f.push=f;f.loaded=true;f.version='2.0';window._fbq=f;
  const s=document.createElement('script');s.async=true;s.src='https://connect.facebook.net/en_US/fbevents.js';document.head.appendChild(s);
- f('init',cfg.pixelId);f('track','PageView');
+ f('set','autoConfig',false,cfg.pixelId);f('init',cfg.pixelId);f('track','PageView');
 }
 function trackLead(id){if(window.fbq&&getConsent()==='yes')window.fbq('track','Lead',{}, {eventID:id})}
 const banner=document.querySelector('#cookie-banner');
